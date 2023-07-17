@@ -17,6 +17,11 @@ const Shop = () => {
     }
   };
 
+  const handleAddToCart = (carId) => {
+    // Implement your "Add to Cart" functionality here
+    console.log(`Added car with ID ${carId} to cart`);
+  };
+
   return (
     <div className="shop">
       {cars.map((car) => (
@@ -27,6 +32,7 @@ const Shop = () => {
           <p>Year: {car.year}</p>
           <p>Price: ${car.price}</p>
           <p>Description: {car.description.join(', ')}</p>
+          <button onClick={() => handleAddToCart(car._id)}>Add to Cart</button>
         </div>
       ))}
     </div>

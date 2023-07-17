@@ -1,0 +1,276 @@
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  
+    > ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: 200ms opacity ease-in-out;
+      transition-delay: 200ms;
+  
+      > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+  
+      &[data-active] {
+        opacity: 1;
+        z-index: 1;
+        transition-delay: 0ms;
+      }
+    }
+  
+    .carousel-button {
+      position: absolute;
+      z-index: 2;
+      background: none;
+      border: none;
+      font-size: 4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      border-radius: 0.25rem;
+      padding: 0 0.5rem;
+      background-color: rgba(0, 0, 0, 0.1);
+  
+      &:hover,
+      &:focus {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+  
+      &:focus {
+        outline: 1px solid black;
+      }
+  
+      &.prev {
+        left: 1rem;
+      }
+  
+      &.next {
+        right: 1rem;
+      }
+    }
+  }
+  #contact {
+    width: 500px;
+    margin: 2em auto;
+    position: relative;
+  
+    &::after {
+      content: "";
+      display: block;
+      height: 30px;
+      width: 90%;
+      left: 5%;
+      bottom: 0;
+      position: absolute;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 100%;
+      z-index: -1;
+    }
+  
+    article {
+      padding: 1em;
+    }
+  
+    h1 {
+      background: #5b2c90ca;
+      font-family: Oswald, sans-serif;
+      font-size: 1.75em;
+      padding: 0.6em 0 0.6em 0.4em;
+      color: white;
+      text-shadow: 0 0.06em 0 #424242;
+      position: relative;
+    }
+  
+    .contactbutton {
+      background: #5b2c90ca;
+      box-shadow: 1px 1px 0 0 #832032, 2px 2px 0 0 #832032, 3px 3px 0 0 #832032;
+      text-align: center;
+      display: block;
+      width: 100%;
+      height: 50px;
+      margin-top: 20px;
+      margin-bottom: 2px;
+      cursor: pointer;
+  
+      &:hover {
+        box-shadow: 1px 1px 0 0 #832032, 0px 0px 0 0 #832032, 0px 0px 0 0 #832032;
+        margin-top: 22px;
+        margin-left: 2px;
+        margin-bottom: 0px;
+      }
+    }
+  
+    .mail {
+      margin-top: 11px;
+      font-size: 15px;
+      display: inline-block;
+      border-top: 2em solid transparent;
+      border-left: 2.6em solid #5c1184;
+      height: 0;
+      width: 0;
+      position: relative;
+  
+      &:before {
+        content: "";
+        top: -2.5em;
+        left: -2.95em;
+        display: block;
+        position: absolute;
+        border-top: 1.2em solid #5c1184;
+        border-left: 1.6em solid transparent;
+        border-right: 1.6em solid transparent;
+        border-bottom: 1em solid transparent;
+        font-size: 0.8em;
+      }
+  
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        border-top: 2em solid transparent;
+        border-right: 2.6em solid #5c1184;
+        height: 0;
+        width: 0;
+        left: -2.18em;
+        bottom: 0;
+      }
+    }
+  
+    #checkcontact {
+      position: absolute;
+      left: -9999px;
+    }
+  
+    .contactform {
+      overflow: hidden;
+      max-height: 0px;
+      transition: all linear 1s;
+  
+      &:checked + .contactform {
+        max-height: 1000px;
+      }
+    }
+  
+    .input_wrapper {
+      position: relative;
+  
+      input[type="text"] {
+        margin-top: 1em;
+        display: block;
+        width: 100%;
+        background: white;
+        border: 1px solid #dadada;
+        box-shadow: 0 0 1px 0 #e4e4e4;
+        box-sizing: border-box;
+        padding: 1em;
+        transition: all 250ms ease;
+        color: #5e5e5e;
+        text-indent: 15%;
+  
+        &:focus {
+          background: rgba(242, 56, 90, 0.05);
+          box-shadow: inset 2px 2px 5px 0 #dadada;
+          outline: none;
+          text-indent: 0;
+        }
+      }
+  
+      label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: #5b2c90ca;
+        color: white;
+        font-family: Oswald, sans-serif;
+        box-sizing: border-box;
+        width: 15%;
+        text-align: center;
+        line-height: 2.8em;
+        transition: all 250ms ease;
+      }
+  
+      input[type="text"]:focus + label {
+        left: 85%;
+      }
+    }
+  
+    .textarea_wrapper {
+      textarea {
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+        min-height: 150px;
+        background: white;
+        border: 1px solid #dadada;
+        box-shadow: 0 0 1px 0 #e4e4e4;
+        box-sizing: border-box;
+        padding: 1em;
+        transition: all 250ms ease;
+        color: #5e5e5e;
+  
+        &:focus {
+          background: rgba(242, 56, 90, 0.05);
+          box-shadow: inset 2px 2px 5px 0 #dadada;
+          outline: none;
+        }
+      }
+    }
+  
+    .submit_wrapper {
+      text-align: center;
+  
+      input {
+        text-align: center;
+        display: inline-block;
+        width: 40%;
+        height: 50px;
+        margin-top: 1em;
+        margin-bottom: 6px;
+        cursor: pointer;
+        background: #5b2c90ca;
+        color: white;
+        font-family: Oswald, sans-serif;
+        font-size: 1em;
+        border: none;
+        box-shadow: 1px 1px 0 0 #832032, 2px 2px 0 0 #832032, 3px 3px 0 0 #832032;
+        appearance: none;
+        transition: all 250ms ease;
+  
+        &:hover {
+          box-shadow: 1px 1px 0 0 #832032, 0px 0px 0 0 #832032,
+            0px 0px 0 0 #832032;
+          margin-top: 22px;
+          margin-left: 2px;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  
+    @media (max-width: 500px) {
+      #contact {
+        width: 100%;
+      }
+  
+      .input_wrapper label {
+        line-height: 3.5em;
+        font-size: 0.8em;
+      }
+    }
+  }
+  

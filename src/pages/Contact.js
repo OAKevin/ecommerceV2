@@ -38,16 +38,16 @@ const Contact = () => {
           </button>
           <ul data-slides>
             <li className="slide" data-active>
-              <img src={slide1} alt="GTR Image #1" />
+              <img src={slide1} alt="GTR " />
             </li>
             <li className="slide">
-              <img src={slide2} alt="GTR Image #2" />
+              <img src={slide2} alt="GTRS" />
             </li>
             <li className="slide">
-              <img src={slide3} alt="GTR Image #3" />
+              <img src={slide3} alt="GTR2" />
             </li>
             <li className="slide" data-active>
-              <img src={slide4} alt="GTR Image #4" />
+              <img src={slide4} alt="GTR3" />
             </li>
           </ul>
         </div>

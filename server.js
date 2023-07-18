@@ -43,8 +43,22 @@ mongoose
 // Enable CORS
 app.use(cors());
 
-// ...
+// Add 
+app.post("/cars", (req, res) => {
+  const q = "INSERT INTO cars(`name`, `model`, `year`, `price`) VALUES (?)";
 
+  const values = [
+    req.body.name,
+    req.body.model,
+    req.body.year,
+    req.body.price,
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
+});
 // API route to fetch car data
 app.get('/cars', async (req, res) => {
   // Fetch car data from the database
@@ -56,7 +70,33 @@ app.get('/cars', async (req, res) => {
     res.status(500).json({ error: 'Error fetching car data' });
   }
 });
+//delete item
+app.delete("/cars/:id", (req, res) => {
+  const carId = req.params._id;
+  const q = " DELETE FROM books WHERE id = ? ";
 
+  db.query(q, [carId], (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
+});
+
+app.put("/cars/:id", (req, res) => {
+  const bookId = req.params.id;
+  const q = "UPDATE books SET `name`= ?, `model`= ?, `year`= ?, `price`= ? WHERE id = ?";
+
+  const values = [
+    req.body.name,
+    req.body.model,
+    req.body.year,
+    req.body.price,
+  ];
+
+  db.query(q, [...values,bookId], (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
+});
 // Serve static files (e.g., React app) from a specific directory
 app.use(express.static('public'));
 

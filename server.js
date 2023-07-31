@@ -92,7 +92,7 @@ app.put("/cars/:id", (req, res) => {
     req.body.price,
   ];
 
-  db.query(q, [...values,bookId], (err, data) => {
+  db.query(q, [...values,carId], (err, data) => {
     if (err) return res.send(err);
     return res.json(data);
   });

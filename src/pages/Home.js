@@ -11,13 +11,32 @@ const Home = () => {
     //     console.log(response.data);
     //   });
     // }, []);
-  
+    
     return (
-      <div>
-        {/* Other content on the home page */}
-        {/* <Slider cars={cars} /> */}
-      </div>
+      
+     <section>
+      <video id="slider" autoplay muted loop>
+        <source src="sources/video1.mp4" type="video/mp4" />
+      </video>
+      <ul class="navigation">
+        <li onclick="videoUrl('sources/video1.mp4')">
+          <img src="sources/pic1.jpg" />
+        </li>
+        <li onclick="videoUrl('sources/video2.mp4')">
+          <img src="sources/pic2.jpg" />
+        </li>
+        <li onclick="videoUrl('sources/video3.mp4')">
+          <img src="sources/pic3.jpg" />
+        </li>
+      </ul>
+    </section>
+ 
+     
+    
+     
     );
   };
-  
+  function videoUrl(url) {
+    document.getElementById("slider").src = url;
+  }
   export default Home;
